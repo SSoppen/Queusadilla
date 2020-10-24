@@ -15,8 +15,8 @@ Lists out any users in the queue
 !leave
 Removes yourself from the queue if possible
 
-!remove str*username*
+!remove *username str*
 Attempts to find a user with the given name, and removes them from the queue
 
-!next int*number*def=1
+!next *number int*def=1
 Pings the next *number* of people in the queue to join, and removes them from the queue
