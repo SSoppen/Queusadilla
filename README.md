@@ -1,6 +1,6 @@
 # Queusadilla
-An extremely simple discord queue bot meant for self hosting or use in single servers
-Currently the bot uses a global list to save the queue. This means that the list is essentially shared between servers, if the bot were to added to more than one
+An extremely simple discord queue bot meant for self hosting or use in single servers.
+Currently the bot uses a global list to save the queue. This means that the list is essentially shared between servers, if the bot were to added to more than one.
 Commands:
 
 !add
