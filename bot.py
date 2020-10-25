@@ -12,7 +12,7 @@ async def on_ready():
 
 #Command for adding oneself to the queue
 @client.command()
-async def add(ctx):
+async def join(ctx):
     if ctx.author.id in queueList:
         await ctx.send("You're already in the queue")
     else:
@@ -45,15 +45,16 @@ async def queue(ctx):
         await ctx.send(queueString)
 
 #Command for removing oneself from the queue
-@client.command
+@client.command()
 async def leave(ctx):
     if ctx.author.id in queueList:
         queueList.remove(ctx.author.id)
+        await ctx.send("You left the queue")
     else:
         await ctx.send("You're not in the queue")
 
 #Command for removing based on username username
-@client.command
+@client.command()
 async def remove(ctx, user):
     try:
         person = discord.utils.get(message.guild.members, name=user)
@@ -61,7 +62,15 @@ async def remove(ctx, user):
         await ctx.send("Succesfully removed " + person.name + " from the queue")
     except:
         await ctx.send("Error in removing person. Worst case, use !clear and have people rejoin")
-
+#Command for adding specific user
+@client.command()
+async def add(ctx, user):
+    try:
+        person = discord.utils.get(message.guild.members, name=user)
+        queueList.append(member.id)
+        await ctx.send("Succesfully added " + person.name + " to the queue")
+    except:
+        await ctx.send("Error in adding person. Worst case, have them use !join")
 #Command for allowing the next person to join.
 @client.command()
 async def next(ctx, number=1):
