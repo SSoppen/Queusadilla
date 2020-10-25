@@ -3,7 +3,7 @@ An extremely simple discord queue bot meant for self hosting or use in single se
 Currently the bot uses a global list to save the queue. This means that the list is essentially shared between servers, if the bot were to added to more than one.
 Commands:
 
-!add
+!join
 Adds oneself to the queue
 
 !clear
@@ -17,6 +17,9 @@ Removes yourself from the queue if possible
 
 !remove *username str*
 Attempts to find a user with the given name, and removes them from the queue
+
+!add *username str*
+Attempts to add a specific user to the queue
 
 !next *number int def=1*
 Pings the next *number* of people in the queue to join, and removes them from the queue
