@@ -6,8 +6,11 @@ Commands:
 !join
 Adds oneself to the queue
 
-!clear
+!clearall
 Clears the ENTIRE list
+
+!clear *number int*
+Clears the next *number* of people fromt the list without pinging them
 
 !queue
 Lists out any users in the queue
@@ -18,8 +21,7 @@ Removes yourself from the queue if possible
 !remove *username str*
 Attempts to find a user with the given name, and removes them from the queue
 
-!add *username str*
-Attempts to add a specific user to the queue
+
 
 !next *number int def=1*
 Pings the next *number* of people in the queue to join, and removes them from the queue
