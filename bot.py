@@ -21,7 +21,17 @@ async def join(ctx):
 
 #Command for clearing the entire queue
 @client.command()
-async def clear(ctx):
+async def clear(ctx, number):
+    try:
+        for i in number:
+            queueList.pop(0)
+        await ctx.send("The first " + number + " has been removed")
+    except:
+        await ctx.send("Error removing people, did you mean !clearall ?")
+
+#Command for clearing parts of the queue, starting from the index
+@client.command()
+async def clearall(ctx):
     queueList.clear()
     await ctx.send("Queue has been cleared")
 
@@ -62,15 +72,7 @@ async def remove(ctx, user):
         await ctx.send("Succesfully removed " + person.name + " from the queue")
     except:
         await ctx.send("Error in removing person. Worst case, use !clear and have people rejoin")
-#Command for adding specific user
-@client.command()
-async def add(ctx, user):
-    try:
-        person = discord.utils.get(message.guild.members, name=user)
-        queueList.append(member.id)
-        await ctx.send("Succesfully added " + person.name + " to the queue")
-    except:
-        await ctx.send("Error in adding person. Worst case, have them use !join")
+
 #Command for allowing the next person to join.
 @client.command()
 async def next(ctx, number=1):
