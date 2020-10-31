@@ -25,7 +25,10 @@ async def clear(ctx, number):
     try:
         for i in number:
             queueList.pop(0)
-        await ctx.send("The first " + number + " has been removed")
+        if number == 1:
+        	await ctx.send( number + " person has been removed from the queue")
+        else:
+            await ctx.send("The first " + number + " people has been removed from the queue")
     except:
         await ctx.send("Error removing people, did you mean !clearall ?")
 
